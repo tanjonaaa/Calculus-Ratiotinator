@@ -45,6 +45,17 @@ class AffirmationTest {
     }
 
     @Test
+    void phraseDeLouEstPauvreEtLouEstGénéreuxEst() {
+        Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
+        Affirmation louEstGénéreux = new Affirmation("Lou est généreux");
+        Et pauvreEtGénéreux = new Et(louEstPauvre, louEstGénéreux);
+
+        Affirmation louEstPauvreEtLouEstGénéreux = new Affirmation(pauvreEtGénéreux);
+
+        assertEquals("Lou est pauvre et Lou est généreux", louEstPauvreEtLouEstGénéreux.getPhrase());
+    }
+
+    @Test
     void louEstBeauDoncLouEstPauvreEstFaux() {
         Vérité louEstBeau = new Vérité("Lou est beau");
         Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
@@ -80,6 +91,22 @@ class AffirmationTest {
         Affirmation louEstBeauOuLouEstGénéreuxDoncLouEstPauvre = new Affirmation(doncLouEstPauvre);
 
         assertEquals("faux", louEstBeauOuLouEstGénéreuxDoncLouEstPauvre.getStatut());
+    }
+
+    @Test
+    void phraseDeLouEstBeauOuLouEstGénéreuxDoncLouEstPauvre() {
+        Vérité louEstBeau = new Vérité("Lou est beau");
+        Affirmation louEstGénéreux = new Affirmation("Lou est généreux");
+        Ou beauOuGénéreux = new Ou(louEstBeau, louEstGénéreux);
+
+        Affirmation louEstBeauOuLouEstGénéreux = new Affirmation(beauOuGénéreux);
+
+        Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
+        Donc doncLouEstPauvre = new Donc(louEstBeauOuLouEstGénéreux, louEstPauvre);
+
+        Affirmation louEstBeauOuLouEstGénéreuxDoncLouEstPauvre = new Affirmation(doncLouEstPauvre);
+
+        assertEquals("Lou est beau ou Lou est généreux. Donc Lou est pauvre", louEstBeauOuLouEstGénéreuxDoncLouEstPauvre.getPhrase());
     }
 
     @Test

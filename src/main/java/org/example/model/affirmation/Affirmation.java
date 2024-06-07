@@ -16,7 +16,7 @@ public sealed class Affirmation permits Vérité, Mensonge {
     }
 
     public Affirmation(ConjonctionDeCoordination conjonction) {
-        this.phrase = null;
+        this.phrase = conjonction.getPhrase();
         this.statut = conjonction.getStatut();
         this.conjonction = conjonction;
     }

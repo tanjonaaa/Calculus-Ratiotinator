@@ -8,6 +8,11 @@ public final class Donc extends ConjonctionDeCoordination {
     }
 
     @Override
+    public String getPhrase() {
+        return premièreAffirmation.getPhrase() + ". Donc " + deuxièmeAffirmation.getPhrase();
+    }
+
+    @Override
     public String getStatut() {
         if(premièreAffirmation.getStatut().equals("vrai") && deuxièmeAffirmation.getStatut().equals("faux")){
             return "faux";
