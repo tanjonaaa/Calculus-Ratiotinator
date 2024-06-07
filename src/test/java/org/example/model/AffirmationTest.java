@@ -92,4 +92,31 @@ class AffirmationTest {
 
         assertEquals("jenesaispas", louEstPauvreOuLouEstGénéreux.getStatut());
     }
+
+    @Test
+    void jeNeSaisPasSiLouEstBeauEtLouEstGénéreux() {
+        Vérité louEstBeau = new Vérité("Lou est beau");
+        Affirmation louEstGénéreux = new Affirmation("Lou est généreux");
+        Et beauEtGénéreux = new Et(louEstBeau, louEstGénéreux);
+
+        Affirmation louEstBeauEtLouEstGénéreux = new Affirmation(beauEtGénéreux);
+
+        assertEquals("jenesaispas", louEstBeauEtLouEstGénéreux.getStatut());
+    }
+
+    @Test
+    void jeNeSaisPasSiLouEstBeauOuLouEstPauvreDoncLouEstGénéreux() {
+        Vérité louEstBeau = new Vérité("Lou est beau");
+        Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
+        Ou beauOuPauvre = new Ou(louEstBeau, louEstPauvre);
+
+        Affirmation louEstBeauOuLouEstPauvre = new Affirmation(beauOuPauvre);
+
+        Affirmation louEstGénéreux = new Affirmation("Lou est généreux");
+        Donc beauOuPauvreDoncGénéreux = new Donc(louEstBeauOuLouEstPauvre, louEstGénéreux);
+
+        Affirmation louEstBeauOuLouEstPauvreDonclouEstGénéreux = new Affirmation(beauOuPauvreDoncGénéreux);
+
+        assertEquals("jenesaispas", louEstBeauOuLouEstPauvreDonclouEstGénéreux.getStatut());
+    }
 }
