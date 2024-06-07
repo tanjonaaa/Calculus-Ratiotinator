@@ -8,6 +8,11 @@ public final class Ou extends ConjonctionDeCoordination {
     }
 
     @Override
+    public String getPhrase() {
+        return premièreAffirmation.getPhrase() + " ou " + deuxièmeAffirmation.getPhrase();
+    }
+
+    @Override
     public String getStatut() {
         if(premièreAffirmation.getStatut().equals("vrai") || deuxièmeAffirmation.getStatut().equals("vrai")){
             return "vrai";
