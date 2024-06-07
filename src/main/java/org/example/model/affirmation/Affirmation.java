@@ -3,8 +3,6 @@ package org.example.model.affirmation;
 import lombok.Getter;
 import org.example.model.conjonction.ConjonctionDeCoordination;
 
-import java.util.Set;
-
 @Getter
 public sealed class Affirmation permits Vérité, Mensonge {
     private final String phrase;
@@ -17,9 +15,9 @@ public sealed class Affirmation permits Vérité, Mensonge {
         this.conjonction = null;
     }
 
-    public Affirmation(ConjonctionDeCoordination conjonction){
+    public Affirmation(ConjonctionDeCoordination conjonction) {
         this.phrase = null;
-        this.statut = "jenesaispas";
+        this.statut = conjonction.getStatut();
         this.conjonction = conjonction;
     }
 }

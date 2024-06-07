@@ -34,7 +34,7 @@ class AffirmationTest {
     }
 
     @Test
-    void louEstPauvreEtLouEstGénéreuxEstFaux(){
+    void louEstPauvreEtLouEstGénéreuxEstFaux() {
         Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
         Affirmation louEstGénéreux = new Affirmation("Lou est généreux");
         Et pauvreEtGénéreux = new Et(louEstPauvre, louEstGénéreux);
@@ -45,7 +45,7 @@ class AffirmationTest {
     }
 
     @Test
-    void louEstBeauDoncLouEstPauvreEstFaux(){
+    void louEstBeauDoncLouEstPauvreEstFaux() {
         Vérité louEstBeau = new Vérité("Lou est beau");
         Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
         Donc beauDoncPauvre = new Donc(louEstBeau, louEstPauvre);
@@ -56,7 +56,7 @@ class AffirmationTest {
     }
 
     @Test
-    void louEstPauvreDoncLouEstGénéreuxEstVrai(){
+    void louEstPauvreDoncLouEstGénéreuxEstVrai() {
         Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
         Affirmation louEstGénéreux = new Affirmation("Lou est généreux");
         Donc pauvreDonGénéreux = new Donc(louEstPauvre, louEstGénéreux);
@@ -83,7 +83,7 @@ class AffirmationTest {
     }
 
     @Test
-    void jeNeSaisPasSiLouEstPauvreOuLouEstGénéreux(){
+    void jeNeSaisPasSiLouEstPauvreOuLouEstGénéreux() {
         Mensonge louEstPauvre = new Mensonge("Lou est pauvre");
         Affirmation louEstGénéreux = new Affirmation("Lou est généreux");
         Ou pauvreOuGénéreux = new Ou(louEstPauvre, louEstGénéreux);
