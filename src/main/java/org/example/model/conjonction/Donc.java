@@ -11,7 +11,9 @@ public final class Donc extends ConjonctionDeCoordination {
     public String getStatut() {
         if(premièreAffirmation.getStatut().equals("vrai") && deuxièmeAffirmation.getStatut().equals("faux")){
             return "faux";
+        } else if(premièreAffirmation.getStatut().equals("faux") || deuxièmeAffirmation.getStatut().equals("vrai")) {
+            return "vrai";
         }
-        return "vrai";
+        return super.getStatut();
     }
 }
