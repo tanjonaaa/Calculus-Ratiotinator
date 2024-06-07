@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.affirmation;
 
 public final class Mensonge extends Affirmation {
     public Mensonge(String phrase) {
